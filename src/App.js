@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header/Header";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Content from "./components/Content/Content";
+import ContentFooter from "./components/ContentFooter/ContentFooter";
+import { TodoProvider } from "./context/TodoContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{
+      background:
+        "radial-gradient(circle, rgba(220,137,173,0.4262838924632353) 0%, rgba(106,154,210,0.41507941067051823) 100%)",
+      zIndex: -1,
+      height: "245px",
+      borderRadius:10
+    }}>
+    
+      <TodoProvider>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Header />
+            </Grid>
+            <Grid item xs={12}>
+              <Content />
+            </Grid>
+            <Grid item xs={12}>
+              <ContentFooter />
+            </Grid>
+          </Grid>
+        </Box>
+      </TodoProvider>
     </div>
   );
 }
